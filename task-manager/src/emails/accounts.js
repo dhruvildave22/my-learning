@@ -4,19 +4,27 @@ const sendgridAPIKey = 'SG.XtJicNG9SC2RiADypaOsZw.F9D_rkX9iAsxenXy2n477x2d8bhLUC
 
 sgMail.setApiKey(sendgridAPIKey)
 
-const msg = {
-  to: 'dhruvildave22@gmail.com', // Change to your recipient
-  from: 'dhruvildave22@gmail.com', // Change to your verified sender
-  subject: 'Sending with SendGrid is Fun',
-  text: 'and easy to do anywhere, even with Node.js',
-  html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+const sendWelcomeEmail = (email, name) => {
+  sgMail.send({
+    to: email,
+    from: 'dhruvildave22@gmail.com',
+    subject: 'Thanks for joining in!',
+    text: `Welcome to the app, ${name}. Let me know how you get along with the app.`
+  })
 }
-sgMail
-  .send(msg)
-  .then(() => {
-    console.log('Email sent')
+
+const sendCancelationEmail = (email, name) => {
+  sgMail.send({
+    to: email,
+    from: 'dhruvildave22@gmail.com',
+    subject: 'Sorry to see you go!',
+    text: `Goodbye, ${name}. I hope to see you back sometime soon.`
   })
-  .catch((error) => {
-    console.error(error)
-  })
+}
+
+module.exports = {
+  sendWelcomeEmail,
+  sendCancelationEmail
+}
+
 
