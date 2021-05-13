@@ -89,7 +89,7 @@ const upload = multer({
   },
   fileFilter(req, file, cb) {
     if (!file.originalname.match(/\.(jpg|jpeg|png)$/)) {
-      return cb(new Error('Please upload a Image only'))
+      return cb(new Error('Please upload an image'))
     }
 
     cb(undefined, true)
@@ -98,6 +98,8 @@ const upload = multer({
 
 router.post('/user/me/avatar', upload.single('avatar'), async (req, res) => {
   res.send()
+}, (error, req, res, next) => {
+  res.status(400).send({ error: error.message })
 })
 
 
