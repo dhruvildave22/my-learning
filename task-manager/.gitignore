@@ -1,2 +1,3 @@
 .env.dev
 .env.test
+.DS_Store
