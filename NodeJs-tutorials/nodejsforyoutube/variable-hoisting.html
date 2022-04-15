@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <a href="http://localhost:3000" target="_blank" rel="nofollow">Open</a>
+
+  <script>
+
+
+    function renderText(text) {
+      const expression = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi;
+      const linkRx = /<a\s+(?:[^>]*?\s+)?href=(["'])(.*?)\1/;
+
+      const regex = new RegExp(expression);
+      const data = "kjsdnkjsd <a target='_blank' href='https://localhost:3000'> Hiii </a>"
+
+      console.log(data.replace("<a", "<a rel='nofollow'"))
+      if (!text.match(linkRx) && text.match(regex)) {
+        let parts = text.split(" ")
+        parts && parts.map((part, index) => {
+          if (part.match(regex)) {
+            parts[index] = `<a rel='nofollow' target="_blank" href=${part}>${part}</a>`
+          }
+        })
+        return parts.join(" ")
+      } else {
+        console.log("text2", text)
+
+        return text
+      }
+    }
+    document.write(renderText("shjdgsjhdbvhj {href='https://codesandbox.io/s/jjmky5047y?file=/src/index.js:698-852'}"))
+
+  </script>
+</body>
+
+</html>

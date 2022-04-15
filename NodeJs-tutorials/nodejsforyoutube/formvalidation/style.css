@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: 'Mulish', sans-serif; */
+}
+
+:root {
+  --myfont: 'Mulish', sans-serif;
+  --my-btn-font: 'Montserrat', sans-serif;
+  --lg-lightcolor: linear-gradient(to left, rgba(116, 235, 213, 0.6), rgba(159, 172, 230, 0))
+  --text-clr: #4f4f4f;
+}

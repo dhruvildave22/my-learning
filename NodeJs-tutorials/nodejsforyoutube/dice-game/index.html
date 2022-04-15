@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Acme">
+</head>
+
+<body>
+  <div class="container">
+    <h1 id="result">JS LUDO</h1>
+    <div class="dice">
+      <p>Player1</p>
+      <img src="images/dice1.png" alt="" id="dice1">
+    </div>
+    <div class="dice">
+      <p>Player2</p>
+      <img src="images/dice6.png" alt="" id="dice2">
+    </div>
+
+    <div><button onclick="rollDice()">Click Me</button></div>
+  </div>
+
+  <script>
+    rollDice = () => {
+      const player1 = Math.floor(Math.random() * 6) + 1;
+      const player1dice = `images/dice${player1}.png`;
+      document.getElementById('dice1').setAttribute('src', player1dice)
+
+      const player2 = Math.floor(Math.random() * 6) + 1;
+      const player2dice = `images/dice${player2}.png`;
+      document.getElementById('dice2').setAttribute('src', player2dice)
+
+      if (player1 > player2) {
+        document.querySelector("h1").innerHTML = "Player 1 won";
+      } else if (player2 > player1) {
+        document.querySelector("h1").innerHTML = "Player 2 won";
+      } else {
+        document.querySelector("h1").innerHTML = "It's Draw";
+      }
+    }
+  </script>
+
+</body>
+
+</html>
